@@ -47,10 +47,13 @@ class _TransactionFormState extends State<TransactionForm> {
           children: <Widget>[
             TextField(
               controller: titleController,
+              onSubmitted: (_) => _submitForm(),
               decoration: InputDecoration(labelText: 'Título'),
             ),
             TextField(
               controller: valueController,
+              keyboardType: TextInputType.numberWithOptions(decimal: true),
+              onSubmitted: (_) => _submitForm(),
               decoration: InputDecoration(labelText: 'Valor (R\$)'),
             ),
             TextButton(
@@ -58,7 +61,12 @@ class _TransactionFormState extends State<TransactionForm> {
               style: TextButton.styleFrom(
                 foregroundColor: Colors.purple,
               ),
-              child: Text('Nova Transação'),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text('Nova Transação'),
+                ],
+              ),
             ),
           ],
         ),
