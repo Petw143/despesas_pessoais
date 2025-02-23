@@ -11,7 +11,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: MediaQuery.of(context).size.height * 0.8,
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[

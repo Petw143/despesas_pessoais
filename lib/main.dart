@@ -20,24 +20,24 @@ class ExpensesApp extends StatelessWidget {
         useMaterial3: false,
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
-          titleLarge: const TextStyle(
-            fontFamily: 'OpenSans',
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-          titleMedium: const TextStyle(
-            fontFamily: 'OpenSans',
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+              titleLarge: const TextStyle(
+                fontFamily: 'OpenSans',
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+              titleMedium: const TextStyle(
+                fontFamily: 'OpenSans',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.purple,
+          backgroundColor: Colors.lightBlue,
           foregroundColor: Colors.white,
         ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.amber,
-          primary: Colors.purple,
+          primary: Colors.lightBlue,
         ),
       ),
     );
@@ -52,7 +52,44 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction>_transactions = <Transaction>[];
+  final List<Transaction> _transactions = <Transaction>[
+    Transaction(
+      id: 't1',
+      title: 'Transacao #01',
+      value: 380.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't6',
+      title: 'Transacao #01',
+      value: 380.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't5',
+      title: 'Transacao #01',
+      value: 380.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Transacao #01',
+      value: 380.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Transacao #01',
+      value: 380.99,
+      date: DateTime.now().subtract(Duration(days: 6)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Transacao #01',
+      value: 380.99,
+      date: DateTime.now().subtract(Duration(days: 7)),
+    ),
+  ];
 
   List<Transaction> get _recentTransactions {
     return _transactions.where((tr) {
