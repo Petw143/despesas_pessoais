@@ -11,25 +11,28 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.8,
+      height: MediaQuery.of(context).size.height * 0.9,
       child: transactions.isEmpty
-          ? Column(
-              children: <Widget>[
-                SizedBox(height: 20),
-                Text(
-                  'Nenhuma Transação Cadastrada!',
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                SizedBox(height: 20),
-                Container(
-                  height: 200,
-                  child: Image.asset(
-                    'assets/images/waiting.png',
-                    fit: BoxFit.cover,
+          ? Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(height: 20),
+                  Text(
+                    'Nenhuma Transação Cadastrada!',
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
-                )
-              ],
-            )
+                  SizedBox(height: 20),
+                  SizedBox(
+                    height: 200,
+                    child: Image.asset(
+                      'assets/images/waiting.png',
+                      fit: BoxFit.cover,
+                    ),
+                  )
+                ],
+              ),
+          )
           : ListView.builder(
               itemCount: transactions.length,
               itemBuilder: (ctx, index) {
@@ -47,7 +50,13 @@ class TransactionList extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(6),
                           child: FittedBox(
-                            child: Text('R\$${tr.value}'),
+                            child: Text(
+                              'R\$${tr.value}',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ),
                       ),
